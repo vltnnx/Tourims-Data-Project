@@ -1,3 +1,5 @@
 dump/
 .venv
 data/clean/
+data/test/
+.DS_Store
