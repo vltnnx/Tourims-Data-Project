@@ -3,3 +3,5 @@ dump/
 data/clean/
 data/test/
 .DS_Store
+*.ipynb
+__pycache__

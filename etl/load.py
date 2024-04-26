@@ -132,7 +132,10 @@ def format_numbers(df):
     return df
 
 def combine_descriptive_columns(df, save_as):
-    if "Description" in df.columns:
+    if save_as == "Tourism Industries":
+        df.drop(columns=["Description"], inplace=True)
+    
+    elif "Description" in df.columns:
         df[save_as] = df[save_as] + ", " + df["Description"]
         df.drop(columns=["Description"], inplace=True)
 
