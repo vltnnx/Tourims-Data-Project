@@ -11,12 +11,11 @@ from data.raw.country_bounding import bounding_boxes
 
 CURR_DIR_PATH = os.getcwd()
 RAW_DATA_PATH = CURR_DIR_PATH + "/data/raw/"
-CLEAN_DATA_PATH = CURR_DIR_PATH + "data/clean/"
-
-
+CLEAN_DATA_PATH = CURR_DIR_PATH + "/data/clean/"
 
 def load_stations_file(filename):
     file = RAW_DATA_PATH + filename
+    save_as = CLEAN_DATA_PATH + "weather_stations_country.csv"
     df = pd.read_json(file)
 
     parsed = pd.DataFrame({
@@ -37,6 +36,7 @@ def load_stations_file(filename):
     weather_stations = select_stations(parsed)
 
     print(weather_stations)
+    weather_stations.to_csv(save_as, index=False)
 
 def get_country_name(code):
     try:
