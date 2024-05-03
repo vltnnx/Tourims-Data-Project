@@ -1,7 +1,12 @@
 dump/
 .venv
-data/clean/
-data/test/
 .DS_Store
 *.ipynb
 __pycache__
+clean_db_test/
+
+# Data files
+data/clean-db/
+data/raw/
+data/clean/
+data/test/
