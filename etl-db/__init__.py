@@ -5,16 +5,15 @@ from load_cities import load_cities
 from load_continents import load_continents
 from rename_countries import remove_non_countries, rename_countries
 from warehouse_transform import *
+from postgres_warehouse import create_tables, set_primary_keys
 
 CURR_DIR_PATH = os.getcwd()
 RAW_DATA_PATH = CURR_DIR_PATH + "/data/raw/"
 CLEAN_DATA_PATH = CURR_DIR_PATH + "/data/clean-db/"
-
 # SOURCE DATA
 WEATHER_STATIONS_RAW = RAW_DATA_PATH + "stations_meteostat.json"
 CITIES_RAW = RAW_DATA_PATH + "geonames-all-cities-with-a-population-1000.csv"
 CONTINENTS_RAW = RAW_DATA_PATH + "Countries by continents.csv"
-
 # DATA DESTINATION (CLEAN DATA)
 DIM_CONTINENTS_PATH = CLEAN_DATA_PATH + "dim_continents.csv"
 DIM_COUNTRIES_PATH = CLEAN_DATA_PATH + "dim_countries.csv"
@@ -22,8 +21,6 @@ DIM_CITIES_PATH = CLEAN_DATA_PATH + "dim_cities.csv"
 DIM_STATIONS_PATH = CLEAN_DATA_PATH + "dim_stations.csv"
 DIM_DATETIME_PATH = CLEAN_DATA_PATH + "dim_datetime.csv"
 FACT_WEATHER_PATH = CLEAN_DATA_PATH + "fact_weather.csv"
-
-
 
 # LOAD RAW DATA
 weather_stations, load_weather = load_stations_file(WEATHER_STATIONS_RAW)
@@ -52,3 +49,13 @@ dim_cities.to_csv(DIM_CITIES_PATH, index=False)
 dim_stations.to_csv(DIM_STATIONS_PATH, index=False)
 dim_datetime.to_csv(DIM_DATETIME_PATH, index=False)
 fact_weather.to_csv(FACT_WEATHER_PATH, index=False)
+
+# CREATE SQL TABLES
+tables = [dim_continents, dim_countries, dim_cities, dim_stations, dim_datetime, fact_weather]
+table_names = ["dim_continents", "dim_countries", "dim_cities", "dim_stations", "dim_datetime", "fact_weather"]
+primary_keys = ["continent_id", "country_id", "city_id", "station_id", "datetime_id", "log_id"]
+
+create_tables(tables, table_names)
+set_primary_keys(table_names, primary_keys)
+
+# SET KEYS FOR SQL TABLES

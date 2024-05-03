@@ -4,6 +4,7 @@ dump/
 *.ipynb
 __pycache__
 clean_db_test/
+config.py
 
 # Data files
 data/clean-db/
