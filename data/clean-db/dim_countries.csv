@@ -1,0 +1,158 @@
+country_name,country_id,continent_id
+Albania,1,3
+Algeria,2,1
+Angola,3,1
+Argentina,4,6
+Armenia,5,3
+Australia,6,5
+Austria,7,3
+Azerbaijan,8,3
+Bahamas,9,4
+Bahrain,10,2
+Bangladesh,11,2
+Belarus,12,3
+Belize,13,4
+Benin,14,1
+Bolivia,15,6
+Bosnia and Herzegovina,16,3
+Botswana,17,1
+Brazil,18,6
+Brunei,19,2
+Bulgaria,20,3
+Burkina Faso,21,1
+Cambodia,22,2
+Cameroon,23,1
+Canada,24,4
+Cape Verde,25,1
+Central African Republic,26,1
+Chad,27,1
+Chile,28,6
+China,29,2
+Colombia,30,6
+Comoros,31,1
+Congo,32,1
+Congo,32,1
+Costa Rica,33,4
+Croatia,34,3
+Cuba,35,4
+Cyprus,36,3
+Czechia,37,3
+Côte d'Ivoire,38,1
+Denmark,39,3
+Dominican Republic,40,4
+Ecuador,41,6
+Egypt,42,1
+El Salvador,43,4
+Equatorial Guinea,44,1
+Estonia,45,3
+Ethiopia,46,1
+Fiji,47,5
+Finland,48,3
+France,49,3
+Gabon,50,1
+Gambia,51,1
+Georgia,52,3
+Germany,53,3
+Ghana,54,1
+Greece,55,3
+Guinea,56,1
+Guyana,57,6
+Honduras,58,4
+Hungary,59,3
+Iceland,60,3
+India,61,2
+Indonesia,62,2
+Iran,63,2
+Iraq,64,2
+Ireland,65,3
+Israel,66,2
+Italy,67,3
+Jamaica,68,4
+Japan,69,2
+Jordan,70,2
+Kazakhstan,71,2
+Kenya,72,1
+Kiribati,73,5
+Kuwait,74,2
+Kyrgyzstan,75,2
+Laos,76,2
+Latvia,77,3
+Lebanon,78,2
+Liberia,79,1
+Libya,80,1
+Lithuania,81,3
+Luxembourg,82,3
+Macedonia,83,3
+Madagascar,84,1
+Malawi,85,1
+Malaysia,86,2
+Mali,87,1
+Malta,88,3
+Marshall Islands,89,5
+Mauritania,90,1
+Mauritius,91,1
+Mexico,92,4
+Micronesia,93,5
+Moldova,94,3
+Mongolia,95,2
+Morocco,96,1
+Mozambique,97,1
+Myanmar,98,2
+Namibia,99,1
+Nepal,100,2
+Netherlands,101,3
+New Zealand,102,5
+Nicaragua,103,4
+Niger,104,1
+Nigeria,105,1
+North Korea,106,2
+Norway,107,3
+Oman,108,2
+Pakistan,109,2
+Panama,110,4
+Papua New Guinea,111,5
+Paraguay,112,6
+Peru,113,6
+Philippines,114,2
+Poland,115,3
+Portugal,116,3
+Qatar,117,2
+Romania,118,3
+Russia,119,2
+Rwanda,120,1
+Saudi Arabia,121,2
+Senegal,122,1
+Serbia,123,3
+Seychelles,124,1
+Sierra Leone,125,1
+Slovakia,126,3
+Slovenia,127,3
+Solomon Islands,128,5
+South Africa,129,1
+South Korea,130,2
+Spain,131,3
+Sri Lanka,132,2
+Suriname,133,6
+Sweden,134,3
+Switzerland,135,3
+Syria,136,2
+Tajikistan,137,2
+Tanzania,138,1
+Thailand,139,2
+Togo,140,1
+Trinidad and Tobago,141,4
+Tunisia,142,1
+Turkey,143,3
+Turkmenistan,144,2
+Tuvalu,145,5
+Ukraine,146,3
+United Arab Emirates,147,2
+United Kingdom,148,3
+United States,149,4
+Uruguay,150,6
+Uzbekistan,151,2
+Vanuatu,152,5
+Venezuela,153,6
+Vietnam,154,2
+Zambia,155,1
+Zimbabwe,156,1

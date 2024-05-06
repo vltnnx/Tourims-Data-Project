@@ -6,8 +6,10 @@ __pycache__
 clean_db_test/
 config.py
 
-# Data files
-data/clean-db/
-data/raw/
+# Data files outside of current scope
 data/clean/
 data/test/
+unwto-all-data-download_112023.xlsx
+
+
+warehouse_design/
