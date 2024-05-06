@@ -9,7 +9,9 @@ config.py
 # Data files outside of current scope
 data/clean/
 data/test/
-unwto-all-data-download_112023.xlsx
+data/raw/unwto-all-data-download_112023.xlsx
 
+# Functions outside of current scope
+etl/
 
 warehouse_design/
