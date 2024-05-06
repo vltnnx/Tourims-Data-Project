@@ -71,3 +71,13 @@ def weather_fact(weather_df, dim_datetime):
     fact_weather["log_id"] = range(1, len(fact_weather) + 1)
 
     return fact_weather
+
+# weather = pd.read_csv("/Users/joonas/VSCode/Tourims Data Project/data/clean-db/staging_weather.csv")
+# datetime = pd.read_csv("/Users/joonas/VSCode/Tourims Data Project/data/clean-db/dim_datetime.csv")
+# datetime["date"] = datetime["date"].astype("datetime64[s]")
+
+# weather_table = weather_fact(weather, datetime)
+
+# # print(weather_table.head(20))
+# print(weather.info())
+# print(datetime.info())

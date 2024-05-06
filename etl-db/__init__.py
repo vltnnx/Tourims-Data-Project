@@ -42,14 +42,6 @@ dim_stations = station_dimension(weather_stations, dim_countries)
 dim_datetime = datetime_dimension(dim_stations)
 fact_weather = weather_fact(country_weather, dim_datetime)
 
-# SAVE DIMENSIONS (CLEAN DATA)
-dim_continents.to_csv(DIM_CONTINENTS_PATH, index=False)
-dim_countries.to_csv(DIM_COUNTRIES_PATH, index=False)
-dim_cities.to_csv(DIM_CITIES_PATH, index=False)
-dim_stations.to_csv(DIM_STATIONS_PATH, index=False)
-dim_datetime.to_csv(DIM_DATETIME_PATH, index=False)
-fact_weather.to_csv(FACT_WEATHER_PATH, index=False)
-
 # CREATE SQL TABLES
 tables = [dim_continents, dim_countries, dim_cities, dim_stations, dim_datetime, fact_weather]
 table_names = ["dim_continents", "dim_countries", "dim_cities", "dim_stations", "dim_datetime", "fact_weather"]
@@ -58,4 +50,11 @@ primary_keys = ["continent_id", "country_id", "city_id", "station_id", "datetime
 create_tables(tables, table_names)
 set_primary_keys(table_names, primary_keys)
 
-# SET KEYS FOR SQL TABLES
+
+# # SAVE DIMENSIONS (OPTIONAL)
+# dim_continents.to_csv(DIM_CONTINENTS_PATH, index=False)
+# dim_countries.to_csv(DIM_COUNTRIES_PATH, index=False)
+# dim_cities.to_csv(DIM_CITIES_PATH, index=False)
+# dim_stations.to_csv(DIM_STATIONS_PATH, index=False)
+# dim_datetime.to_csv(DIM_DATETIME_PATH, index=False)
+# fact_weather.to_csv(FACT_WEATHER_PATH, index=False)

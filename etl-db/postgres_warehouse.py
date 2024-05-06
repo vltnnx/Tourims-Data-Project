@@ -46,25 +46,4 @@ def set_primary_keys(table_names_list, primary_key_list):
     conn.commit()
     cur.close()
     conn.close()
-
-
-
-
-
-# def set_primary_keys(table_names_list, primary_key_list):
-#     print(datetime.datetime.now(), "Setting primary keys . . .")
-#     conn = pg.connect(host="localhost", dbname="postgres", user="postgres", \
-#                             password=db_key, port=5432)
-#     cur = conn.cursor()
-
-#     for table_name, primary_key in zip(table_names_list, primary_key_list):
-#         print(datetime.datetime.now(), f"Setting key for: {table_name}")
-#         cur.execute("ALTER TABLE %s ADD PRIMARY KEY (%s);",
-#                      (table_name, primary_key)
-#         )
-#         print(datetime.datetime.now(), f"Key set for: {table_name}")
-
-
-#     conn.commit()
-#     cur.close()
-#     conn.close()
+    

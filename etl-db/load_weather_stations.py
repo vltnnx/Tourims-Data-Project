@@ -43,6 +43,8 @@ def clean(df):
     df = df[(df["daily_start"].dt.year <= 2018) & (df["daily_end"].dt.year == 2024)]
     df = df.reset_index(drop=True)
 
+    df = df.drop_duplicates(subset=["station_id"], keep=False)
+
     return df
 
 def select_stations(df):
