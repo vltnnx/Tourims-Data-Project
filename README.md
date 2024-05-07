@@ -1,5 +1,5 @@
 # Trave Destination Project
-The aim of this project is to generate a tool to assist its users to determine their next travel destination. At its current stage the project offers the possibility for the users to determine their travel destination based on their desired weather conditions worldwide.
+The aim of this project is to create a tool to assist its users to determine their next travel destination. At its current stage the project offers the possibility for the users to determine their travel destination based on the desired weather conditions worldwide.
 
 ## Project steps
 1. Data collection: From online sources, weather data from Meteostat library
