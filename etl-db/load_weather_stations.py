@@ -9,6 +9,27 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from data.raw.country_bounding import bounding_boxes
 
 def load_stations_file(filepath):
+    """ Loads the Meteostat .json file containing data on available weather
+    stations and parsing the .json into a DataFrame.
+
+    1. Parses .json into required data columns in a pandas DataFrame.
+    2. Calls "get_country_name()" function to get country names based on
+       country codes provided by Meteostat data.
+    3. Calls "clean" function to format, clean and drop rows & columns. Also, 
+       drops weather stations for which there is no data for the required
+       time period (no daily weather data after 2018 and up until 2024.)
+    4. Calls the "select_stations" function to determine five (5) weather
+       stations from each country to allow requesting & calculating average
+       weather for countries.
+    5. Returns DataFrames "weather_stations_all" containing all weather
+       stations with available data and "weather_stations_load_weather" 
+       containing weather stations for which to request data for calculating
+       weather for each country.
+
+    Parameters:
+     - filepath : Path to .json file containing weather station data.
+     
+    """
     df = pd.read_json(filepath)
 
     parsed = pd.DataFrame({
@@ -28,6 +49,8 @@ def load_stations_file(filepath):
     return weather_stations_all, weather_stations_load_weather
 
 def get_country_name(code):
+    """ Fetches the country name for each country based on country code
+     using pycountry library. """
     try:
         country = pycountry.countries.get(alpha_2=code)
         return country.name
@@ -35,6 +58,17 @@ def get_country_name(code):
         return "Unknown"
     
 def clean(df):
+    """ Cleans the weather station DataFrame.
+    1. Removes weather station rows with "country_name" "Unknown"
+    2. Removes weather station rows if daily weather data start day 
+       is not from 2018 onward & if end day for daily data is before 2024.
+    3. Removes duplicate weather stations.
+    4. Returns cleaned DataFrame.
+
+    Parameters:
+     - df : DataFrame containing weather station data
+     
+    """
     df = df[df["country_name"] != "Unknown"]
     df = df[(~df["daily_start"].isnull())]
     df = df.reset_index(drop=True)
@@ -48,6 +82,21 @@ def clean(df):
     return df
 
 def select_stations(df):
+    """ Uses KMeans clusters to create 5 clusters based on weather station
+    location within the countries. Then chooses 1 station from each geographical
+    cluster to provide a varied sample of weather data for each country.
+
+    For some countries with outside territories far away from mainland, bounding
+    boxes have been created to select weather stations only from mainland.
+
+    Returns a DataFrame with maximum 5 weather stations for each country (less
+    weather stations returned if no more weather stations found for that country.
+
+    Parameters:
+     - df : DataFrame containing weather station data, including country name, 
+            latitude, and longitude.
+    
+    """
     countries = df.country_name.unique()
 
     num_clusters = 5

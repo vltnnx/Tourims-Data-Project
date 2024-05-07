@@ -1,6 +1,8 @@
 from postgres_warehouse import create_tables, set_primary_keys
 import pandas as pd
 
+""" SCRIPT TO TEST FUNCTIONS IN postgres_warehouse.py USING SAVED CSV FILES"""
+
 dim_continents = pd.read_csv("/Users/joonas/VSCode/Tourims Data Project/data/clean-db/dim_continents.csv")
 dim_countries = pd.read_csv("/Users/joonas/VSCode/Tourims Data Project/data/clean-db/dim_countries.csv")
 dim_cities = pd.read_csv("/Users/joonas/VSCode/Tourims Data Project/data/clean-db/dim_cities.csv")
