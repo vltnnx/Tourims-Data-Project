@@ -7,4 +7,7 @@ The aim of this project is to generate a tool to assist its users to determine t
 3. Postgres database: Python scripts to connect to a database and create SQL tables
 4. Visualisation: A dashboard in Tableau visualising a temperature map with relevant filters and supporting graphs to investigate deeper
 
+![dwh_design](https://raw.githubusercontent.com/vltnnx/Travel-Destination-Project/main/warehouse_design/travel_destination_db.png?token=GHSAT0AAAAAACQ7MNXYBJYGS4JFT72KW5OMZR2CV5Q)
 
+
+https://raw.githubusercontent.com/vltnnx/Travel-Destination-Project/main/warehouse_design/travel_destination_db.png?token=GHSAT0AAAAAACQ7MNXYBJYGS4JFT72KW5OMZR2CV5Q
