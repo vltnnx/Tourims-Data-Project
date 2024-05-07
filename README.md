@@ -11,4 +11,5 @@ The aim of this project is to generate a tool to assist its users to determine t
 ![dwh_design](https://raw.githubusercontent.com/vltnnx/Travel-Destination-Project/main/warehouse_design/travel_destination_db.png?token=GHSAT0AAAAAACQ7MNXYBJYGS4JFT72KW5OMZR2CV5Q)
 
 ### Visualisation
+Visualisation for the project created in Tableau. Find the interactive dashboard on Tableau Public to try yourself [through this link](https://public.tableau.com/views/WorldWeather_17150782341070/Dashboard?:language=en-GB&publish=yes&:sid=&:display_count=n&:origin=viz_share_link) 
 ![Tableau Dashboard](https://raw.githubusercontent.com/vltnnx/Travel-Destination-Project/main/img/fig1_weather%20map.png?token=GHSAT0AAAAAACQ7MNXY2USAUGGVORJLYDDKZR2DDQA)
