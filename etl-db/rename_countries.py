@@ -1,8 +1,15 @@
 import pandas as pd
 
-# ADD DIFFERENTATION FOR CONGOS
-
 def rename_countries(*dfs):
+    """ Takes the DataFrames containing country names and renames
+    the countries to standardize the names across all DataFrames.
+
+    Notice: Renames countries in DataFrames within a "country_name"
+    column.
+    
+    Parameters:
+     - dfs : DataFrames containing country names.
+    """
     edited_dfs = []
 
     for df in dfs:
@@ -40,6 +47,9 @@ def rename_countries(*dfs):
     return tuple(edited_dfs)
 
 def remove_non_countries(*dfs):
+    """ Removes territories that aren't countries, or
+    for which there is no data in other required DataFrames.
+    """
     edited_dfs = []
 
     for df in dfs:
