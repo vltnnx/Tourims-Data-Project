@@ -13,10 +13,9 @@ The aim of this project is to generate a tool to assist its users to determine t
 - Web app: Functionality to implement ad-hoc requests by cities wordlwide, eliminating need to store large amounts of data.
 - AI support in web app: Utilising AI to give users more details on travel destinations and things to do.
 
-<br><br><br>
-### Data warehouse
+## Data warehouse
 ![dwh_design](https://github.com/vltnnx/Travel-Destination-Project/blob/main/warehouse_design/travel_destination_db.png?raw=true)
 <br><br>
-### Visualisation
+## Visualisation
 Visualisation for the project created in Tableau. Find the interactive dashboard on Tableau Public to try yourself [through this link](https://public.tableau.com/views/WorldWeather_17150782341070/Dashboard?:language=en-GB&publish=yes&:sid=&:display_count=n&:origin=viz_share_link).
 ![Tableau Dashboard](https://github.com/vltnnx/Travel-Destination-Project/blob/main/img/fig1_weather%20map.png?raw=true)
