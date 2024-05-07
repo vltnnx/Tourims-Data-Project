@@ -42,19 +42,22 @@ dim_stations = station_dimension(weather_stations, dim_countries)
 dim_datetime = datetime_dimension(dim_stations)
 fact_weather = weather_fact(country_weather, dim_datetime)
 
-# CREATE SQL TABLES
-tables = [dim_continents, dim_countries, dim_cities, dim_stations, dim_datetime, fact_weather]
-table_names = ["dim_continents", "dim_countries", "dim_cities", "dim_stations", "dim_datetime", "fact_weather"]
-primary_keys = ["continent_id", "country_id", "city_id", "station_id", "datetime_id", "log_id"]
+# # CREATE SQL TABLES
+# tables = [dim_continents, dim_countries, dim_cities, dim_stations, dim_datetime, fact_weather]
+# table_names = ["dim_continents", "dim_countries", "dim_cities", "dim_stations", "dim_datetime", "fact_weather"]
+# primary_keys = ["continent_id", "country_id", "city_id", "station_id", "datetime_id", "log_id"]
 
-create_tables(tables, table_names)
-set_primary_keys(table_names, primary_keys)
+# create_tables(tables, table_names)
+# set_primary_keys(table_names, primary_keys)
 
 
 # SAVE DIMENSIONS (OPTIONAL)
-dim_continents.to_csv(DIM_CONTINENTS_PATH, index=False)
-dim_countries.to_csv(DIM_COUNTRIES_PATH, index=False)
-dim_cities.to_csv(DIM_CITIES_PATH, index=False)
-dim_stations.to_csv(DIM_STATIONS_PATH, index=False)
-dim_datetime.to_csv(DIM_DATETIME_PATH, index=False)
-fact_weather.to_csv(FACT_WEATHER_PATH, index=False)
+dim_continents.dropna(inplace=True)
+
+
+dim_continents.to_csv(DIM_CONTINENTS_PATH, index=False, encoding="utf-8", line_terminator='\n')
+# dim_countries.to_csv(DIM_COUNTRIES_PATH, index=False, encoding="utf-8")
+# dim_cities.to_csv(DIM_CITIES_PATH, index=False, encoding="utf-8")
+# dim_stations.to_csv(DIM_STATIONS_PATH, index=False, encoding="utf-8")
+# dim_datetime.to_csv(DIM_DATETIME_PATH, index=False, encoding="utf-8")
+# fact_weather.to_csv(FACT_WEATHER_PATH, index=False, encoding="utf-8")
