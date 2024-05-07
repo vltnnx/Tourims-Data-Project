@@ -10,6 +10,7 @@ The aim of this project is to generate a tool to assist its users to determine t
 ### Data warehousa
 ![dwh_design](https://raw.githubusercontent.com/vltnnx/Travel-Destination-Project/main/warehouse_design/travel_destination_db.png?token=GHSAT0AAAAAACQ7MNXYBJYGS4JFT72KW5OMZR2CV5Q)
 
+
 ![dwh_design](https://raw.githubusercontent.com/vltnnx/Travel-Destination-Project/main/warehouse_design/travel_destination_db.png?token=GHSAT0AAAAAACQ7MNXYBJYGS4JFT72KW5OMZR2CV5Q)
 
 https://raw.githubusercontent.com/vltnnx/Travel-Destination-Project/main/warehouse_design/travel_destination_db.png?token=GHSAT0AAAAAACQ7MNXYBJYGS4JFT72KW5OMZR2CV5Q
