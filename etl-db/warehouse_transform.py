@@ -153,14 +153,32 @@ def weather_fact(weather_df, dim_datetime):
     return fact_weather
 
 def quality_fact(qol_df, dim_countries, dim_cities, dim_datetime, dim_quality_indicators):
-   fact_quality = pd.merge(qol_df, dim_countries[["country_name", "country_id"]], on="country_name", how="left")
+   """ Creates fact_quality DataFrame by merging id columns from dimension
+   DataFrames and dropping string columns (city_name, country_name, etc.).
+
+   Returns: fact_quality DataFrame
+
+   Parameters:
+     - qol_df : DataFrame containing quality of life data
+     - dim_countries : Country dimension DataFrame
+     - dim_cities : City dimension DataFrame
+     - dim_datetime : Datetime dimension DataFrame
+     - dim_quality_indicators : Quality indicators dimension DataFrame
     
-   # Filter out duplicated city-country combinations from dim_cities
+    """
+   # Add country_id to fact_quality
+   fact_quality = pd.merge(qol_df, dim_countries[["country_name", "country_id"]], on="country_name", how="left")
+   fact_quality.drop(columns="country_name", inplace=True)
+    
+   # Filter out duplicated city-country combinations from dim_cities before merge
    duplicate_city_country = dim_cities[["city_name", "country_id"]].duplicated()
    merge_cities = dim_cities[~duplicate_city_country]
 
+   # Add city_id to fact_quality
    fact_quality = pd.merge(fact_quality, merge_cities[["city_name", "country_id", "city_id"]], on=["city_name", "country_id"])
+   fact_quality.drop(columns="city_name", inplace=True)
 
+   # Add datetime_id to fact_quality
    fact_quality = pd.merge(fact_quality, dim_datetime[["date", "datetime_id"]], on=["date"], how="left")
    fact_quality.drop(columns="date", inplace=True)
 
@@ -172,6 +190,15 @@ def quality_fact(qol_df, dim_countries, dim_cities, dim_datetime, dim_quality_in
    return fact_quality
 
 def quality_indicators_dim(df):
+   """ Creates a dimension DataFrame based on unique indicators in quality
+   of life DataFrame.
+   
+   Returns: dim_indicators DataFrame.
+   
+   Parameters:
+    - df : DataFrame containing the quality of life data.
+   
+   """
    indicators = df["indicator"].unique()
 
    dim_indicators = pd.DataFrame()

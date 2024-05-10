@@ -314,42 +314,5 @@ def rename_drop_cities(df):
     return df
 
 
-
-# health, pollution, safety, cost = load_qol_data()
-# index_combined = concat_qol_dfs(health, pollution, safety, cost)
 # quality_of_life = load_qol_data()
 # print(quality_of_life)
-# quality_of_life.to_csv("/Users/joonas/VSCode/Tourims Data Project/data/clean-db/fact_quality.csv", index=False)
-
-
-# city_indexes = merge_index_dfs(health, pollution, safety, cost)
-# country_indexes = merge_index_dfs(health_country, pollution_country, safety_country, cost_country)
-
-# print(country_indexes)
-# print(city_indexes)
-
-
-
-
-
-
-# import os
-# import datetime
-# COST_OF_LIVING_DATA = RAW_DATA_PATH + "cost_of_living.csv"
-# HEALTH_CARE_DATA = RAW_DATA_PATH + "health_care.csv"
-# POLLUTION_DATA = RAW_DATA_PATH + "pollution.csv"
-# SAFETY_DATA = RAW_DATA_PATH + "safety.csv"
-
-# file_paths = [COST_OF_LIVING_DATA, HEALTH_CARE_DATA, POLLUTION_DATA, SAFETY_DATA]
-# file_dates = []
-
-# for path in file_paths:
-#     creation_time = os.path.getctime(path)
-#     creation_date = datetime.datetime.fromtimestamp(creation_time).date()
-#     file_dates.append(creation_date)
-
-# oldest_date = min(file_dates)
-# oldest_date_formatted = oldest_date.strftime("%Y-%m-%d")
-
-# print("Oldest Date:", oldest_date_formatted)
-
