@@ -151,3 +151,38 @@ def weather_fact(weather_df, dim_datetime):
     fact_weather["log_id"] = range(1, len(fact_weather) + 1)
 
     return fact_weather
+
+def quality_fact(qol_df, dim_countries, dim_cities, dim_datetime, dim_quality_indicators):
+   fact_quality = pd.merge(qol_df, dim_countries[["country_name", "country_id"]], on="country_name", how="left")
+    
+   # Filter out duplicated city-country combinations from dim_cities
+   duplicate_city_country = dim_cities[["city_name", "country_id"]].duplicated()
+   merge_cities = dim_cities[~duplicate_city_country]
+
+   fact_quality = pd.merge(fact_quality, merge_cities[["city_name", "country_id", "city_id"]], on=["city_name", "country_id"])
+
+   fact_quality = pd.merge(fact_quality, dim_datetime[["date", "datetime_id"]], on=["date"], how="left")
+   fact_quality.drop(columns="date", inplace=True)
+
+   fact_quality = pd.merge(fact_quality, dim_quality_indicators, on=["indicator"], how="left")
+   fact_quality.drop(columns="indicator", inplace=True)
+
+   fact_quality["log_id"] = range(1, len(fact_quality) + 1)
+
+   return fact_quality
+
+def quality_indicators_dim(df):
+   indicators = df["indicator"].unique()
+
+   dim_indicators = pd.DataFrame()
+   dim_indicators["indicator"] = indicators
+   dim_indicators["indicator_id"] = range(1, len(dim_indicators) + 1)
+
+   return dim_indicators
+    
+
+
+
+
+
+    

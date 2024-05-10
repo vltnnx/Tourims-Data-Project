@@ -6,6 +6,7 @@ from load_continents import load_continents
 from rename_countries import remove_non_countries, rename_countries
 from warehouse_transform import *
 from postgres_warehouse import create_tables, set_primary_keys
+from load_qol_data import load_qol_data
 
 CURR_DIR_PATH = os.getcwd()
 RAW_DATA_PATH = CURR_DIR_PATH + "/data/raw/"
@@ -27,6 +28,8 @@ weather_stations, load_weather = load_stations_file(WEATHER_STATIONS_RAW)
 cities = load_cities(CITIES_RAW, separator=";")
 country_continents = load_continents(CONTINENTS_RAW)
 country_weather = get_country_weather(load_weather)
+qol_data = load_qol_data()
+
 
 # TRANSFORM DATA
 weather_stations, cities, country_continents, country_weather = \
@@ -41,6 +44,8 @@ dim_cities = city_dimension(cities, dim_countries)
 dim_stations = station_dimension(weather_stations, dim_countries)
 dim_datetime = datetime_dimension(dim_stations)
 fact_weather = weather_fact(country_weather, dim_datetime)
+dim_quality_indicators = quality_indicators_dim(qol_data)
+fact_quality = quality_fact(qol_data, dim_countries, dim_cities, dim_datetime, dim_quality_indicators)
 
 # # CREATE SQL TABLES
 # tables = [dim_continents, dim_countries, dim_cities, dim_stations, dim_datetime, fact_weather]
@@ -52,12 +57,11 @@ fact_weather = weather_fact(country_weather, dim_datetime)
 
 
 # SAVE DIMENSIONS (OPTIONAL)
-dim_continents.dropna(inplace=True)
-
-
-dim_continents.to_csv(DIM_CONTINENTS_PATH, index=False, encoding="utf-8", line_terminator='\n')
+# dim_continents.to_csv(DIM_CONTINENTS_PATH, index=False, encoding="utf-8", line_terminator='\n')
 # dim_countries.to_csv(DIM_COUNTRIES_PATH, index=False, encoding="utf-8")
 # dim_cities.to_csv(DIM_CITIES_PATH, index=False, encoding="utf-8")
 # dim_stations.to_csv(DIM_STATIONS_PATH, index=False, encoding="utf-8")
 # dim_datetime.to_csv(DIM_DATETIME_PATH, index=False, encoding="utf-8")
 # fact_weather.to_csv(FACT_WEATHER_PATH, index=False, encoding="utf-8")
+fact_weather.to_csv(f"{CLEAN_DATA_PATH}fact_quality.csv", index=False, encoding="utf-8")
+dim_quality_indicators.to_csv(f"{CLEAN_DATA_PATH}dim_quality_indicators.csv", index=False, encoding="utf-8")
