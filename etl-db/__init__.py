@@ -48,12 +48,12 @@ dim_quality_indicators = quality_indicators_dim(qol_data)
 fact_quality = quality_fact(qol_data, dim_countries, dim_cities, dim_datetime, dim_quality_indicators)
 
 # # CREATE SQL TABLES
-# tables = [dim_continents, dim_countries, dim_cities, dim_stations, dim_datetime, fact_weather]
-# table_names = ["dim_continents", "dim_countries", "dim_cities", "dim_stations", "dim_datetime", "fact_weather"]
-# primary_keys = ["continent_id", "country_id", "city_id", "station_id", "datetime_id", "log_id"]
+# tables = [dim_continents, dim_countries, dim_cities, dim_stations, dim_datetime, fact_weather, dim_quality_indicators, fact_quality]
+# table_names = ["dim_continents", "dim_countries", "dim_cities", "dim_stations", "dim_datetime", "fact_weather", "dim_quality_indicators", "fact_quality"]
+# primary_keys = ["continent_id", "country_id", "city_id", "station_id", "datetime_id", "log_id", "indicator_id", "log_id"]
 
-# create_tables(tables, table_names)
-# set_primary_keys(table_names, primary_keys)
+# # create_tables(tables, table_names)
+# # set_primary_keys(table_names, primary_keys)
 
 
 # SAVE DIMENSIONS (OPTIONAL)
@@ -63,5 +63,5 @@ fact_quality = quality_fact(qol_data, dim_countries, dim_cities, dim_datetime, d
 # dim_stations.to_csv(DIM_STATIONS_PATH, index=False, encoding="utf-8")
 # dim_datetime.to_csv(DIM_DATETIME_PATH, index=False, encoding="utf-8")
 # fact_weather.to_csv(FACT_WEATHER_PATH, index=False, encoding="utf-8")
-fact_weather.to_csv(f"{CLEAN_DATA_PATH}fact_quality.csv", index=False, encoding="utf-8")
-dim_quality_indicators.to_csv(f"{CLEAN_DATA_PATH}dim_quality_indicators.csv", index=False, encoding="utf-8")
+# fact_quality.to_csv(f"{CLEAN_DATA_PATH}fact_quality.csv", index=False, encoding="utf-8")
+# dim_quality_indicators.to_csv(f"{CLEAN_DATA_PATH}dim_quality_indicators.csv", index=False, encoding="utf-8")
