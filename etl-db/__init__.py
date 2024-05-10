@@ -22,6 +22,8 @@ DIM_CITIES_PATH = CLEAN_DATA_PATH + "dim_cities.csv"
 DIM_STATIONS_PATH = CLEAN_DATA_PATH + "dim_stations.csv"
 DIM_DATETIME_PATH = CLEAN_DATA_PATH + "dim_datetime.csv"
 FACT_WEATHER_PATH = CLEAN_DATA_PATH + "fact_weather.csv"
+DIM_QUALITY_INDICATORS_PATH = CLEAN_DATA_PATH + "dim_quality_indicators.csv"
+FACT_QUALITY_PATH = CLEAN_DATA_PATH + "fact_quality.csv"
 
 # LOAD RAW DATA
 weather_stations, load_weather = load_stations_file(WEATHER_STATIONS_RAW)
@@ -29,7 +31,6 @@ cities = load_cities(CITIES_RAW, separator=";")
 country_continents = load_continents(CONTINENTS_RAW)
 country_weather = get_country_weather(load_weather)
 qol_data = load_qol_data()
-
 
 # TRANSFORM DATA
 weather_stations, cities, country_continents, country_weather = \
@@ -63,5 +64,5 @@ fact_quality = quality_fact(qol_data, dim_countries, dim_cities, dim_datetime, d
 # dim_stations.to_csv(DIM_STATIONS_PATH, index=False, encoding="utf-8")
 # dim_datetime.to_csv(DIM_DATETIME_PATH, index=False, encoding="utf-8")
 # fact_weather.to_csv(FACT_WEATHER_PATH, index=False, encoding="utf-8")
-# fact_quality.to_csv(f"{CLEAN_DATA_PATH}fact_quality.csv", index=False, encoding="utf-8")
-# dim_quality_indicators.to_csv(f"{CLEAN_DATA_PATH}dim_quality_indicators.csv", index=False, encoding="utf-8")
+# fact_quality.to_csv(FACT_QUALITY_PATH, index=False, encoding="utf-8")
+# dim_quality_indicators.to_csv(DIM_QUALITY_INDICATORS_PATH, index=False, encoding="utf-8")
