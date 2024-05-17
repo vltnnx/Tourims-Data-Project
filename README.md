@@ -1,5 +1,5 @@
 # Trave Destination Project
-The aim of this project is to create a tool to assist its users to determine their next travel destination. At its current stage the project offers the possibility for the users to determine their travel destination based on weather, safety, affordability, pollution, and healt care quality worldwide.
+The aim of this project is to create a tool to assist its users to determine their next travel destination. At its current stage the project offers the possibility for the users to determine their travel destination based on weather, safety, affordability, pollution, and healt care quality worldwide utilising Tableau dashboards.
 
 ## Project steps
 1. Data collection: Weather data from Meteostat library, quality of life indeces from Numbeo
